@@ -28,14 +28,14 @@ class FilaPrioridade:
     # retorna True se a fila de prioridade está cheia, False caso contrário
     def is_full(self) -> bool:
         # implementação do método
-        return None if self.is_empty() else self.__inicio
+        pass
 
 
     # Retorna uma referência para o primeiro item da fila de prioridade
     # Caso a lista esteja vazia, retorna None
     def first(self) -> No:
         # implementação do método
-        pass
+        return None if self.is_empty() else self.__inicio
 
 
     # insere um item na fila de prioridade e retorna True, se o item for inserido

@@ -70,7 +70,13 @@ class FilaPrioridade:
     # se a fila de prioridade estiver vazia, lança uma exceção: raise Exception("mensagem de erro")
     def remove(self) -> No:
         # implementação do método
-        pass
+        if self.is_empty():
+            raise Exception("Fila vazia")
+        else:
+            valor = self.__inicio
+            self.__inicio = self.__inicio.prox
+            self.__qtdItens -= 1
+            return valor
 
 
     # retorna uma lista de tuplas com os itens (valor e prioridade) da fila de prioridade 
@@ -79,11 +85,20 @@ class FilaPrioridade:
     # que a fila de prioridade está vazia e retorna uma lista vazia
     def display(self) -> list[tuple()]:
         # implementação do método
-        pass
+        if self.is_empty():
+            print("Lista vazia!")
+            return []
+        
+        lista = []
+        pointer = self.__inicio
+        while pointer:
+            lista.append((pointer.dado, pointer.prioridade))
+            pointer = pointer.prox
+        return lista
     
 
     # retorna a quantidade de elementos na fila de prioridade
     # se a fila de prioridade estiver vazia, retorna ZERO
     def size(self) -> int:
         # implementação do método
-        pass
+        return 0 if self.is_empty() else self.__qtdItens
